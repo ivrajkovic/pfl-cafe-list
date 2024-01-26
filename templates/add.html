@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Add Cafe
+{% endblock %}
+
+{% block header %}
+  <h1>Add Cafe</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="POST" action="{{ url_for('add') }}" novalidate>
+    {{ form.csrf_token }}
+    {% for field in form %}
+      {% if field.name != 'csrf_token' and field.name != 'submit'%}
+        <div class="row input-form">
+          <div class="col-lg-2">
+            {{ field.label }}
+          </div>
+          <div class="col-lg-6">
+            {{ field() }}
+          </div>
+          <div class="col-lg-4">
+            {% for err in field.errors %}
+              <span style="color: red">{{ err }}</span><br>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+    <br>
+    {{ form.submit }}
+    <a href="{{ url_for('home') }}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+  </form>
+{% endblock %}

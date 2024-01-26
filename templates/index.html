@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Cafes
+{% endblock %}
+
+{% block header %}
+  <h1>Cafes list</h1>
+  <a href="{{ url_for('add') }}"><button type="button" class="btn btn-success btn-sm">Add</button></a>
+{% endblock %}
+
+{% block content %}
+  {% for cafe in cafes %}
+    <div class="row">
+      <div class="col-md-4">
+        <img class="image" src="{{ cafe.img_url }}" alt="cafe image">
+      </div>
+      <div class="col-md-8">
+        <div class="cafe-item">
+          <h4>{{ cafe.name }}</h4>
+          <i class='bx bx-current-location'></i> <a href="{{ cafe.map_url }}">{{ cafe.location }}</a><br>
+          <i class='bx bx-coffee' title="Coffee price"></i> {{ cafe.coffee_price }}<br>
+          <i class='bx bx-chair' title="Number of seats"></i> ({{ cafe.seats }})
+          {% if cafe.has_sockets %}
+            <i class='bx bxs-battery-charging' title="Has charging sockets"></i>
+          {% endif %}
+          {% if cafe.has_wifi %}
+            <i class='bx bx-wifi' title="Has WiFi"></i>
+          {% endif %}
+          {% if cafe.has_toilet %}
+            <i class='bx bx-male-female' title="Has toilet"></i>
+          {% endif %}
+          {% if cafe.can_take_calls %}
+            <i class='bx bx-phone-call' title="Can take phone calls"></i>
+          {% endif %}
+          <br>
+          <a href="{{ url_for('delete', cafe_id=cafe.id ) }}"><button type="button" class="btn btn-danger btn-sm">Delete</button></a>
+        </div>
+      </div>
+    </div>
+    <hr>
+  {% endfor %}
+{% endblock %}

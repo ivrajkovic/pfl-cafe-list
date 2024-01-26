@@ -1,0 +1,60 @@
+/*
+font-family: 'Poppins', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Play', sans-serif;
+*/
+
+/* Define colors*/
+:root {
+    --primary: #FFF7D4;
+    --secondary: #FFD95A;
+    --accent: #C07F00;
+    --text: #4C3D3D;
+}
+
+body {
+    background-color: var(--primary);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    line-height: 2;
+    font-size: 1.2em;
+    margin: 0;
+}
+hr {
+    width: 80%;
+    margin: 25px auto;
+    border-color: var(--accent);
+}
+h1, h2, h3, h4 {
+    color: var(--accent);
+}
+a, a:visited {
+    color: var(--text);
+    text-decoration: none;
+}
+a:hover  {
+    text-decoration: underline;
+}
+.container {
+    padding: 2% 5%;
+}
+.cafe-item {
+    width: 90%;
+    margin: 10px auto;
+    text-align: left;
+    line-height: 2;
+}
+.image {
+    margin-top: 10px;
+    width: 90%;
+}
+.input-form {
+    text-align: left;
+    margin: 10px auto;
+}
+#header, #footer {
+    background-color: var(--secondary);
+}
